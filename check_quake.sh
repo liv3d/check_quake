@@ -42,7 +42,7 @@ STATE_CRITICAL=2
 STATE_UNKNOWN=3
 
 # Some default values
-PORT=27919
+PORT=27910
 
 shopt -s extglob
 
