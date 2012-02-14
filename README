@@ -1,0 +1,11 @@
+check_quake.sh
+
+This is meant to be a Nagios plugin to monitor Quake servers. Currently only
+Quake II server are supported, but it's easy to to any types of servers that
+are supported by qstat. This plugin uses qstat to do all the queries.
+
+Note that this plugin is in very early development and does NOT yet comply with
+the Nagios Plugin Development Guidelines.
+The plugin is in use by myself to monitor a friends Quake II server and is 
+working nicely, but it is not production ready!
+
