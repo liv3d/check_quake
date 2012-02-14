@@ -1,13 +1,15 @@
 check_quake.sh
 
-This is meant to be a Nagios plugin to monitor Quake servers. Currently only
-Quake II server are supported, but it's easy to to any types of servers that
-are supported by qstat. This plugin uses qstat to do all the queries.
+This is a Nagios plugin to monitor Quake servers. Currently only Quake II 
+servers are supported, but more games will be added in the future.
+This plugin uses qstat to do all the queries.
+The plugin complies with the Nagios Plugin Development Guidelines. It has
+some basic sanity checks, uses the default exit codes, follows the standard 
+arguments, has only one line of output etc.
 
-Note that this plugin does NOT yet comply with the Nagios Plugin Development 
-Guidelines (for example missing some sanity checks).
 The plugin is in use by myself to monitor a friends Quake II server and is 
 working nicely.
+
 
 Options:
 -h
@@ -16,7 +18,7 @@ Options:
    Print version information
 -H 
    Set the host/IP of the server to watch
--P
+-p
    Set the port number of the Quake server to watch
    Default is 27910
 --warning

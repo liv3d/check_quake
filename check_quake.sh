@@ -29,8 +29,11 @@
 #                                                                             #
 ###############################################################################
 
-VERSION="0.1"
+VERSION="0.2"
 AUTHOR="(c) 2012 Jack-Benny Persson (jack-benny@cyberinfo.se)"
+
+# Qstat binary
+QSTAT=/usr/bin/quakestat
 
 # Exit codes
 STATE_OK=0
@@ -42,6 +45,14 @@ STATE_UNKNOWN=3
 PORT=27919
 
 shopt -s extglob
+
+# Sanity checks
+if [[ ! -x "$QSTAT" ]]; then
+	printf "It appears you don't have the qstat package installed in\
+ $QSTAT\n"
+	exit $STATE_UNKNOWN
+fi
+
 
 #### Functions ####
 
@@ -66,7 +77,7 @@ Options:
    Print version information
 -H 
    Set the host/IP of the server to watch
--P
+-p
    Set the port number of the Quake server to watch
    Default is 27910
 --warning
@@ -106,7 +117,7 @@ while [[ -n "$1" ]]; do
            shift 2
            ;;
 
-       -P)
+       -p)
            if [[ -z "$2" ]]; then
                 printf "\nOption $1 requires an argument\n"
 		print_help
