@@ -4,8 +4,21 @@ This is meant to be a Nagios plugin to monitor Quake servers. Currently only
 Quake II server are supported, but it's easy to to any types of servers that
 are supported by qstat. This plugin uses qstat to do all the queries.
 
-Note that this plugin is in very early development and does NOT yet comply with
-the Nagios Plugin Development Guidelines.
+Note that this plugin does NOT yet comply with the Nagios Plugin Development 
+Guidelines (for example missing some sanity checks).
 The plugin is in use by myself to monitor a friends Quake II server and is 
-working nicely, but it is not production ready!
+working nicely.
 
+Options:
+-h
+   Print detailed help screen
+-V
+   Print version information
+-H 
+   Set the host/IP of the server to watch
+-P
+   Set the port number of the Quake server to watch
+   Default is 27910
+--warning
+   Issue a warning state instead of a critical state 
+   Default is critical
