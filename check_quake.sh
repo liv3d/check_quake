@@ -27,6 +27,8 @@
 # The plugin exit with a CRICITAL error code if the server is down.           #
 # This behavior can be changed with the --warning argument.                   # 
 # Written in Bash (and uses standard tools such as grep and awk).             #
+# Latest version of the script can be found at:                               #
+# https://github.com/jackbenny/check_quake                                    #
 #                                                                             #
 ###############################################################################
 
