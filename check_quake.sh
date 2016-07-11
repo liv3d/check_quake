@@ -36,7 +36,7 @@ VERSION="0.3"
 AUTHOR="(c) 2012 Jack-Benny Persson (jack-benny@cyberinfo.se)"
 
 # Qstat binary
-QSTAT=/usr/bin/quakestat
+QSTAT=/usr/local/bin/qstat
 
 # Exit codes
 STATE_OK=0
@@ -79,7 +79,7 @@ Options:
    Print detailed help screen
 -V
    Print version information
--H 
+-H
    Set the host/IP of the server to watch
 -p
    Set the port number of the game server to watch
@@ -171,7 +171,7 @@ Options:
  	woetm		 Enemy Territory Master server
  	woets		 Enemy Territory server
 --warning
-   Issue a warning state instead of a critical state 
+   Issue a warning state instead of a critical state
    Default is critical
 
 EOT
@@ -179,7 +179,7 @@ EOT
 
 
 # Parse command line options
-while [[ -n "$1" ]]; do 
+while [[ -n "$1" ]]; do
    case "$1" in
 
        -h | --help)
@@ -262,11 +262,11 @@ fi
 ### MAIN ###
 
 #Test if the server is up and running
-QSTAT_TEST=`quakestat -u -default ${GAME} ${HOST}:${PORT} | grep "${HOST}"`
+QSTAT_TEST=`${QSTAT} -u -default ${GAME} ${HOST}:${PORT} | grep "${HOST}"`
 
 #Let's see if the above command was succesful or not
 if [[ $? == 0 ]]; then
-	printf "${GAME} on port $PORT - OK\n" 
+	printf "${GAME} on port $PORT - OK\n"
 	exit $STATE_OK
 
 #See if we wanted a warning instead of a critical
@@ -274,7 +274,7 @@ elif [[ "$warning" == "yes" ]]; then
 		printf "${GAME} on port $PORT - WARNING\n"
 		exit $STATE_WARNING
 #Critical
-else	
+else
 
   printf "${GAME} on port $PORT - CRITICAL\n"
   exit $STATE_CRITICAL
